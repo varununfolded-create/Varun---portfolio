@@ -325,6 +325,31 @@ ul { list-style: none; padding: 0; }
   opacity: 1;
   transform: translateY(0);
 }
+#voice-message {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 24px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.voice-controls button,
+#send-voice {
+  margin: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #00e676;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.voice-controls button:disabled,
+#send-voice:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 
 }
