@@ -70,5 +70,61 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) entry.target.classList.add("active");
   });
 });
+emailjs.init("YOUR_PUBLIC_KEY");
+
+let mediaRecorder;
+let audioBlob;
+
+const startBtn = document.getElementById("start-record");
+const stopBtn = document.getElementById("stop-record");
+const sendBtn = document.getElementById("send-voice");
+const audioPreview = document.getElementById("audio-preview");
+const statusText = document.getElementById("voice-status");
+
+startBtn.onclick = async () => {
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  mediaRecorder = new MediaRecorder(stream);
+  const chunks = [];
+
+  mediaRecorder.ondataavailable = e => chunks.push(e.data);
+  mediaRecorder.onstop = () => {
+    audioBlob = new Blob(chunks, { type: "audio/wav" });
+    audioPreview.src = URL.createObjectURL(audioBlob);
+    audioPreview.style.display = "block";
+    sendBtn.disabled = false;
+  };
+
+  mediaRecorder.start();
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
+};
+
+stopBtn.onclick = () => {
+  mediaRecorder.stop();
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
+};
+
+sendBtn.onclick = () => {
+  const reader = new FileReader();
+  reader.readAsDataURL(audioBlob);
+
+  reader.onloadend = () => {
+    emailjs.send(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      {
+        name: document.getElementById("voice-name").value || "Website Visitor",
+        message: reader.result
+      }
+    ).then(() => {
+      statusText.innerText = "✅ Voice message sent successfully!";
+      sendBtn.disabled = true;
+    }).catch(() => {
+      statusText.innerText = "❌ Failed to send. Try again.";
+    });
+  };
+};
+
 
 
