@@ -217,6 +217,31 @@ footer{text-align:center;padding:30px;color:#777}
   background: #00e676;
   border-radius: 10px;
 }
+.voice-box {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 24px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.voice-box button {
+  margin: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #00e676;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.voice-box button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 
 
 
