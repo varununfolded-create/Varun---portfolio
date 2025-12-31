@@ -70,3 +70,67 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) entry.target.classList.add("active");
   });
 });
+emailjs.init("YOUR_PUBLIC_KEY");
+
+let mediaRecorder;
+let audioChunks = [];
+let audioBlob;
+
+const startBtn = document.getElementById("start-record");
+const stopBtn = document.getElementById("stop-record");
+const sendBtn = document.getElementById("send-voice");
+const audioPreview = document.getElementById("audio-preview");
+const statusText = document.getElementById("voice-status");
+
+startBtn.addEventListener("click", async () => {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
+    audioChunks = [];
+
+    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+
+    mediaRecorder.onstop = () => {
+      audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+      audioPreview.src = URL.createObjectURL(audioBlob);
+      audioPreview.style.display = "block";
+      sendBtn.disabled = false;
+    };
+
+    mediaRecorder.start();
+    statusText.innerText = "🎙 Recording...";
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
+  } catch (err) {
+    statusText.innerText = "❌ Microphone permission denied";
+  }
+});
+
+stopBtn.addEventListener("click", () => {
+  mediaRecorder.stop();
+  statusText.innerText = "✅ Recording stopped";
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
+});
+
+sendBtn.addEventListener("click", () => {
+  const reader = new FileReader();
+  reader.readAsDataURL(audioBlob);
+
+  reader.onloadend = () => {
+    emailjs.send(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      {
+        name: document.getElementById("voice-name").value || "Website Visitor",
+        message: reader.result
+      }
+    ).then(() => {
+      statusText.innerText = "✅ Voice message sent!";
+      sendBtn.disabled = true;
+    }).catch(() => {
+      statusText.innerText = "❌ Failed to send message";
+    });
+  };
+});
+
