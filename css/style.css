@@ -208,6 +208,16 @@ footer{text-align:center;padding:30px;color:#777}
 * {
   transition: background 0.3s ease, color 0.3s ease;
 }
+.bar {
+  background: #1e293b;
+  border-radius: 10px;
+}
+.bar div {
+  height: 8px;
+  background: #00e676;
+  border-radius: 10px;
+}
+
 
 
 
