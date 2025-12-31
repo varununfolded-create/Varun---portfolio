@@ -325,6 +325,7 @@ ul { list-style: none; padding: 0; }
   opacity: 1;
   transform: translateY(0);
 }
+
 #voice-message {
   max-width: 500px;
   margin: 60px auto;
@@ -352,4 +353,3 @@ ul { list-style: none; padding: 0; }
 }
 
 
-}
