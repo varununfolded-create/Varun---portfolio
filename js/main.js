@@ -70,7 +70,7 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) entry.target.classList.add("active");
   });
 });
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("fPORFKxI2xjahd-LF");
 
 let mediaRecorder;
 let audioChunks = [];
@@ -119,8 +119,8 @@ sendBtn.addEventListener("click", () => {
 
   reader.onloadend = () => {
     emailjs.send(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
+      "service_varun",
+      "template_2laaavf",
       {
         name: document.getElementById("voice-name").value || "Website Visitor",
         message: reader.result
