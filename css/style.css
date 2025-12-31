@@ -233,10 +233,21 @@ footer{text-align:center;padding:30px;color:#777}
 
 /* Mobile adjustment */
 @media (max-width: 768px) {
-  .blog-card img {
-    max-height: 200px;
+  .blog-card {
+  margin: 40px auto;          /* centers horizontally */
+  max-width: 900px;           /* controls width */
+}
   }
-  .blog-inner-img {
-    max-height: 160px;
-  }
+  .blog-card > img {
+  display: block;
+  margin: 0 auto;
+}
+.blog-inner-img {
+  display: block;
+  margin: 20px auto;
+  max-width: 85%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 }
