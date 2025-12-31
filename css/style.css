@@ -217,17 +217,6 @@ footer{text-align:center;padding:30px;color:#777}
   background: #00e676;
   border-radius: 10px;
 }
-/* ===== Scroll Reveal Animation ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 
 
