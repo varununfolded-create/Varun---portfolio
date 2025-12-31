@@ -64,3 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => addMsg(res, "bot-msg"), 400);
   }
 });
+const reveals = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("active");
+  });
+});
+reveals.forEach(r => observer.observe(r));
