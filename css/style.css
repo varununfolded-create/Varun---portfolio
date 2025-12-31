@@ -195,5 +195,15 @@ footer{text-align:center;padding:30px;color:#777}
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.2);
 }
+.section-line {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #00e676, #00b0ff);
+  animation: move 3s infinite alternate;
+}
+@keyframes move {
+  from { width: 40px; }
+  to { width: 80px; }
+}
 
 
