@@ -260,4 +260,11 @@ footer{text-align:center;padding:30px;color:#777}
     grid-template-columns: 1fr;
   }
 }
+.blog-inner-img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+  object-fit: cover;
+}
+
 
