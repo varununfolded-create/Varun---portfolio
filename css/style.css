@@ -249,5 +249,16 @@ footer{text-align:center;padding:30px;color:#777}
   border-radius: 12px;
   object-fit: cover;
 }
+.blog-content {
+  max-width: 720px;        /* controls text width */
+  margin: 0 auto;          /* centers content */
+  padding: 30px;
+  text-align: left;        /* keep text readable */
+}
+@media (max-width: 768px) {
+  .blog-content {
+    padding: 20px;
+  }
+}
 
 }
