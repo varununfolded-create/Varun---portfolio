@@ -205,5 +205,9 @@ footer{text-align:center;padding:30px;color:#777}
   from { width: 40px; }
   to { width: 80px; }
 }
+* {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
 
 
