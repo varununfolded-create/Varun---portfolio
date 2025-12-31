@@ -70,6 +70,7 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) entry.target.classList.add("active");
   });
 });
+
 emailjs.init("fPORFKxI2xjahd-LF");
 
 let mediaRecorder;
