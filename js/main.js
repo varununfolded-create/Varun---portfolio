@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let res = "Sorry, I didn’t understand.";
 
     if (msg.includes("skill"))
-      res = "Varun works with Python, Machine Learning, and Web Development.";
+      res = "Varun works with Python, Machine Learning,Web Development and SAP & ERP.";
 
     else if (msg.includes("project"))
       res = "Projects include OCR System and Terrorist Attack Prediction.";
