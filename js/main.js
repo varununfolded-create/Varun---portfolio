@@ -60,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     else if (msg.includes("hi") || msg.includes("hello"))
       res = "Hello 👋 How can I help you?";
+    
+    else if (msg.includes("Manju"))
+     res = " Don't ask, Manju is a bitch !";
+             
 
     setTimeout(() => addMsg(res, "bot-msg"), 400);
   }
