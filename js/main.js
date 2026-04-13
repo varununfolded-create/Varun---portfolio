@@ -58,11 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (msg.includes("resume"))
       res = "Use the Download Resume button on the home page.";
 
-    else if (msg.includes("hi") || msg.includes("hello"))
-      res = "Hello 👋 How can I help you?";
-    
-    else if (msg.includes("Manju"))
-      res = "Don't ask, Manju is a bitch !";           
+    else if (msg.includes("hi") || msg.includes("hello")) || msg.includes("hai"))
+      res = "Hello 👋 How can I help you?"; 
 
     setTimeout(() => addMsg(res, "bot-msg"), 400);
   }
