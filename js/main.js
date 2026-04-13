@@ -62,8 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       res = "Hello 👋 How can I help you?";
     
     else if (msg.includes("Manju"))
-     res = " Don't ask, Manju is a bitch !";
-             
+      res = "Don't ask, Manju is a bitch !";           
 
     setTimeout(() => addMsg(res, "bot-msg"), 400);
   }
