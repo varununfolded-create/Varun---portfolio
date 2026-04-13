@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function reply(msg) {
-    let res = "Do not ask Manju is bitch.";
+    let res = "Sorry i didn't understand.";
 
     if (msg.includes("skill"))
       res = "Varun works with Python, Machine Learning,Web Development and SAP & ERP.";
